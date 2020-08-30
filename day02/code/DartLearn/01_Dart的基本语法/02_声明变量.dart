@@ -23,19 +23,22 @@ main(List<String> args) {
   // const date1 = DateTime.now(); 写法错误
   final date2 = DateTime.now();
 
-  // final用于的更多一点
+  // final用的更多一点
   // p1和p2是不是同一个对象
   // final p1 = Person("why");
   // final p2 = Person("why");
-  // print(identical(p1, p2));
+  // print(identical(p1, p2));//false,final声明的是不同对象.(identical函数是对比两个对象是否相同)
 
+  // const p1 =const Person("why");
+  // const p2 =const Person("why");
+  // const p3 =const Person("lilei");
   // 在Dart2.0之后, const可以省略
-  const p1 = const Person("why");
-  const p2 = const Person("why");
-  const p3 = const Person("lilei");
+  const p1 = Person("why");
+  const p2 = Person("why");
+  const p3 = Person("lilei");
 
-  print(identical(p1, p2));
-  print(identical(p2, p3));
+  print(identical(p1, p2)); //true ,const 声明的是同一个对象
+  print(identical(p2, p3)); //false
 
   // dynamic/Object
 }
@@ -44,5 +47,3 @@ class Person {
   final String name;
   const Person(this.name);
 }
-
-
