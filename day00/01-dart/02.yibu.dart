@@ -118,26 +118,26 @@ Instance of 'Future<String>',future
 
 //上面改进 使用Future链式调用
 
-import "dart:io";
-main(List<String> args) {
-  Future<String> getNetWorkData(){
-    return Future<String>((){
-      sleep(Duration(seconds:5));
-      // 抛出异常
-      return "网络异常1";
-    });
-  }
-  print("begin");
-  getNetWorkData().then((res1){
-    print(res1);
-    return "网络异常2";
-  }).then((res2){
-    print(res2);
-    return "网络异常3";
-  }).then((res3){
-    print(res3);
-  });
-  print("end");
+// import "dart:io";
+// main(List<String> args) {
+//   Future<String> getNetWorkData(){
+//     return Future<String>((){
+//       sleep(Duration(seconds:5));
+//       // 抛出异常
+//       return "网络异常1";
+//     });
+//   }
+//   print("begin");
+//   getNetWorkData().then((res1){
+//     print(res1);
+//     return "网络异常2";
+//   }).then((res2){
+//     print(res2);
+//     return "网络异常3";
+//   }).then((res3){
+//     print(res3);
+//   });
+//   print("end");
 
   /**
    * 
@@ -149,5 +149,38 @@ main(List<String> args) {
 网络异常3
    */
 
-}
+// }
 
+// Future value直接赋值api
+
+
+// main(List<String> args) {
+//   print("start");
+//   Future.value("hahaha").then((v){
+//     print(v);
+//   });
+//   print("end");
+//   /**一次性打印下面:hahaha是放入异步队列了,所以会最后执行
+//    * start
+// end
+// hahaha
+//    */
+// }
+
+// Future delayed延迟函数api
+
+main(List<String> args) {
+  print("start");
+  Future.delayed(Duration(seconds:5),(){
+    return "5秒后执行";
+  }).then((value){
+    print(value);
+  });
+  print("end");
+  /**
+   * start
+end
+5秒后输出:
+5秒后执行
+   */
+}
