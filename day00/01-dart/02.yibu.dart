@@ -169,18 +169,18 @@ Instance of 'Future<String>',future
 
 // Future delayed延迟函数api
 
-main(List<String> args) {
-  print("start");
-  Future.delayed(Duration(seconds:5),(){
-    return "5秒后执行";
-  }).then((value){
-    print(value);
-  });
-  print("end");
-  /**
-   * start
-end
-5秒后输出:
-5秒后执行
-   */
-}
+// main(List<String> args) {
+//   print("start");
+//   Future.delayed(Duration(seconds:5),(){
+//     return "5秒后执行";
+//   }).then((value){
+//     print(value);
+//   });
+//   print("end");
+//   /**
+//    * start
+// end
+// 5秒后输出:
+// 5秒后执行
+//    */
+// }
